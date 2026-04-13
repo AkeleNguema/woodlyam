@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏗️ Woodlyam Engineering — Site Vitrine
 
-## Getting Started
+Bienvenue sur le dépôt GitHub du portfolio professionnel de **Mendame Ndong (Warex Lansky)**, Ingénieur en Génie Civil basé à Libreville, Gabon.
 
-First, run the development server:
+Ce projet est un site vitrine moderne, performant et optimisé pour le mobile, conçu pour présenter des archives techniques et des réalisations de chantiers.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Aperçu du Projet
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Woodlyam est une plateforme minimaliste qui met en avant l'intégrité structurelle et la précision technique. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Landing Page Impactante** : Design épuré avec visuels de chantiers en haute définition.
+- **Portfolio Dynamique** : Galerie de projets (Bâtiment R+2, Voiries, Soutènement) accessible au clic.
+- **Expertise Technique** : Section dédiée aux compétences logicielles (AutoCAD, Revit, Robot) et métiers.
+- **Contact Direct** : Intégration de liens rapides vers WhatsApp et Gmail.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Stack Technique
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Le site a été développé avec les technologies suivantes :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* **Framework** : [Next.js 15](https://nextjs.org/) (App Router)
+* **Styles** : [Tailwind CSS](https://tailwindcss.com/) pour un design responsive et moderne.
+* **Icônes** : [Google Material Symbols](https://fonts.google.com/icons) & Custom SVGs.
+* **Typographie** : Space Grotesk (Titres) & Inter (Corps de texte).
+* **Déploiement** : [Vercel](https://vercel.com/).
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📁 Structure du Projet
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+woodlyam/
+├── public/              # Images de chantiers et logos (WhatsApp, Gmail)
+│   └── projects/        # Galerie photos .JPG
+├── src/
+│   └── app/
+│       ├── page.js      # Code principal du site (React/Next.js)
+│       ├── layout.js    # Configuration des polices et métadonnées
+│       └── globals.css  # Configuration Tailwind
+└── tailwind.config.mjs  # Personnalisation des couleurs (Orange Woodlyam)
