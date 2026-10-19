@@ -3,7 +3,7 @@ export const COMPANY_INFO = {
   brand: "WOODLYAM",
   slogan: "L'intégrité structurelle au service de bâtisseurs exigeants",
   founder: {
-    fullName: "Mendame Ndong Warex Lansky",
+    fullName: "MENDAME ME NDONG Warex Lansky",
     title: "Ingénieur Génie Civil & Fondateur",
     shortRole: "Ingénieur Génie Civil",
     bio: "Ingénieur en Génie Civil basé à Libreville, Gabon, Warex Lansky a fondé Woodlyam Engineering avec une conviction inébranlable : chaque édifice et chaque voie de communication doit allier robustesse technique absolue, optimisation des coûts de construction et pérennité sous les conditions climatiques équatoriales.",

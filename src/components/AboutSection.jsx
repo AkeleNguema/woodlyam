@@ -22,7 +22,7 @@ export default function AboutSection({ onOpenQuote }) {
               <div className="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden border border-neutral-300 shadow-md bg-neutral-900">
                 <Image
                   src="/projects/32.JPG"
-                  alt="Mendame Ndong Warex Lansky, Ingénieur Génie Civil"
+                  alt="MENDAME ME NDONG Warex Lansky, Ingénieur Génie Civil"
                   fill
                   sizes="(max-width: 1024px) 100vw, 380px"
                   className="object-cover object-center grayscale-[15%]"

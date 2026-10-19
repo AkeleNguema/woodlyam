@@ -26,7 +26,7 @@ export const metadata = {
   keywords: [
     "Ingénieur Génie Civil Gabon",
     "Woodlyam Engineering",
-    "Warex Lansky Mendame Ndong",
+    "MENDAME ME NDONG Warex Lansky",
     "BTP Gabon Libreville",
     "Bureau d'études structures Gabon",
     "Calcul Eurocode 2",
@@ -34,7 +34,7 @@ export const metadata = {
     "Murs de soutènement",
     "Chantier routier terrassement Ondongo Ntoum",
   ],
-  authors: [{ name: "Mendame Ndong Warex Lansky", url: "https://woodlyam.com" }],
+  authors: [{ name: "MENDAME ME NDONG Warex Lansky", url: "https://woodlyam.com" }],
   creator: "Woodlyam Engineering",
   openGraph: {
     title: "Woodlyam Engineering — Ingénierie & Structures Civiles",
