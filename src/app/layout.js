@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   title: "Woodlyam Engineering | Bureau d'Études & Ingénierie Civile — Libreville, Gabon",
   description:
-    "Cabinet d'ingénierie et de calculs de structures dirigé par Mendame Ndong Warex Lansky. Dimensionnement béton armé Eurocodes, voiries & réseaux divers (VRD), soutènements et maîtrise d'œuvre à Libreville, Gabon.",
+    "Cabinet d'ingénierie et de calculs de structures dirigé par MENDAME ME NDONG Warex Lansky . Dimensionnement béton armé Eurocodes, voiries & réseaux divers (VRD), soutènements et maîtrise d'œuvre à Libreville, Gabon.",
   keywords: [
     "Ingénieur Génie Civil Gabon",
     "Woodlyam Engineering",
