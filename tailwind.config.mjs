@@ -8,18 +8,30 @@ const tailwindConfig = {
   theme: {
     extend: {
       colors: {
-        surface: "#fcf9f8",
-        "on-surface": "#1b1c1c",
-        primary: "#8b5000",
-        "primary-container": "#ff9800",
-        "on-primary-container": "#653900",
-        "surface-container-low": "#f6f3f2",
-        "surface-container-lowest": "#ffffff",
-        "outline-variant": "#dbc2ad",
+        cad: {
+          dark: "#0F1115",
+          charcoal: "#16191E",
+          surface: "#1E2229",
+          border: "#2A303A",
+          grid: "rgba(255, 255, 255, 0.05)",
+        },
+        studio: {
+          bg: "#FAFAFA",
+          card: "#FFFFFF",
+          muted: "#F4F5F6",
+          border: "#E5E7EB",
+          dark: "#111827",
+        },
+        amber: {
+          accent: "#D97706",
+          light: "#F59E0B",
+          glow: "rgba(245, 158, 11, 0.15)",
+        },
       },
       fontFamily: {
-        headline: ["var(--font-headline)"],
-        body: ["var(--font-body)"],
+        headline: ["var(--font-headline)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
       },
     },
   },

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { X, Send, MessageSquare, Mail, Building, MapPin, Phone, User, FileText } from "lucide-react";
+import { X, MessageSquare, Mail, Building, MapPin, Phone, User, FileText } from "lucide-react";
 import { COMPANY_INFO } from "../data/companyData";
 
 export default function QuoteModal({ isOpen, onClose }) {
@@ -44,13 +44,13 @@ export default function QuoteModal({ isOpen, onClose }) {
   const generateBriefText = () => {
     return (
       `*DEMANDE D'ÉTUDE TECHNIQUE — WOODLYAM ENGINEERING*\n\n` +
-      `👤 *Client* : ${formData.fullName || "Non renseigné"}\n` +
+      `👤 *Client / Porteur* : ${formData.fullName || "Non renseigné"}\n` +
       `📞 *Contact* : ${formData.phone || "Non renseigné"}\n` +
-      `🏗️ *Prestation* : ${formData.service}\n` +
-      `📍 *Localisation* : ${formData.location}\n` +
+      `🏗️ *Mission demandée* : ${formData.service}\n` +
+      `📍 *Localisation chantier* : ${formData.location}\n` +
       `📐 *Type d'ouvrage* : ${formData.projectType}\n` +
-      `📝 *Détails / Besoins* : ${formData.description || "Souhaite un premier échange technique / devis."}\n\n` +
-      `Transmis via la plateforme Woodlyam Engineering.`
+      `📝 *Détails & Contraintes* : ${formData.description || "Souhaite un échange technique préliminaire."}\n\n` +
+      `Transmis via la plateforme numérique Woodlyam Engineering (Libreville, Gabon).`
     );
   };
 
@@ -73,7 +73,7 @@ export default function QuoteModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-neutral-950/70 backdrop-blur-sm transition-opacity"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -83,21 +83,21 @@ export default function QuoteModal({ isOpen, onClose }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="quote-modal-title"
-        className="relative w-full max-w-2xl bg-[#fcf9f8] rounded-2xl shadow-2xl border border-[#dbc2ad]/50 overflow-hidden z-10 my-auto flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl border border-neutral-200 overflow-hidden z-10 my-auto flex flex-col max-h-[90vh]"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#dbc2ad]/30 bg-[#fcf9f8]/95 backdrop-blur-sm">
+        <div className="flex items-center justify-between px-5 py-3.5 border-b border-neutral-200 bg-white">
           <div>
-            <span className="text-[10px] font-headline font-bold uppercase tracking-widest text-[#8b5000]">
-              Cabinet Woodlyam Engineering
+            <span className="font-mono text-[9px] uppercase tracking-widest text-[#D97706] font-bold block">
+              BUREAU D&apos;ÉTUDES WOODLYAM
             </span>
-            <h2 id="quote-modal-title" className="font-headline text-xl sm:text-2xl font-black uppercase text-[#1b1c1c] tracking-tight">
-              Demander une Étude ou un Devis
+            <h2 id="quote-modal-title" className="font-headline text-lg sm:text-xl font-black uppercase text-[#111827] tracking-tight">
+              Demande d&apos;Étude &amp; Chiffrage
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[#1b1c1c]/70 hover:text-[#1b1c1c] hover:bg-[#f0eded] transition-colors"
+            className="p-1 rounded-full text-neutral-400 hover:text-neutral-900 hover:bg-neutral-100 transition-colors"
             aria-label="Fermer le formulaire de devis"
           >
             <X className="w-5 h-5" />
@@ -105,18 +105,18 @@ export default function QuoteModal({ isOpen, onClose }) {
         </div>
 
         {/* Scrollable Form Body */}
-        <form className="overflow-y-auto p-6 space-y-5 text-xs sm:text-sm">
-          {/* Service Choice */}
-          <div className="space-y-1.5">
-            <label className="font-headline font-bold uppercase tracking-wider text-[#1b1c1c] flex items-center gap-2">
-              <Building className="w-4 h-4 text-[#ff9800]" />
+        <form className="overflow-y-auto p-5 sm:p-6 space-y-4 text-xs">
+          {/* Mission */}
+          <div className="space-y-1">
+            <label className="font-headline font-bold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5 text-[11px]">
+              <Building className="w-3.5 h-3.5 text-[#D97706]" />
               Type de mission ou prestation
             </label>
             <select
               name="service"
               value={formData.service}
               onChange={handleChange}
-              className="w-full p-3 rounded-xl border border-[#dbc2ad]/50 bg-white font-medium text-[#1b1c1c] focus:outline-none focus:ring-2 focus:ring-[#ff9800]"
+              className="w-full p-2.5 rounded-lg border border-neutral-300 bg-white font-medium text-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
             >
               <option value="Calcul de Structures Béton Armé">Calcul de Structures Béton Armé (Poteaux, Poutres, Dalles)</option>
               <option value="Voiries & Réseaux Divers (VRD)">Voiries, Terrassements & Assainissement Pluvial</option>
@@ -129,25 +129,25 @@ export default function QuoteModal({ isOpen, onClose }) {
           </div>
 
           {/* Location & Project Type */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label className="font-headline font-bold uppercase tracking-wider text-[#1b1c1c] flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#ff9800]" />
-                Localisation du chantier
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="space-y-1">
+              <label className="font-headline font-bold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5 text-[11px]">
+                <MapPin className="w-3.5 h-3.5 text-[#D97706]" />
+                Localisation
               </label>
               <input
                 type="text"
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
-                placeholder="Ex: Libreville, Ntoum, Akanda, Owendo..."
-                className="w-full p-3 rounded-xl border border-[#dbc2ad]/50 bg-white font-medium text-[#1b1c1c] focus:outline-none focus:ring-2 focus:ring-[#ff9800]"
+                placeholder="Ex: Libreville, Ntoum, Akanda..."
+                className="w-full p-2.5 rounded-lg border border-neutral-300 bg-white font-medium text-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
               />
             </div>
 
-            <div className="space-y-1.5">
-              <label className="font-headline font-bold uppercase tracking-wider text-[#1b1c1c] flex items-center gap-2">
-                <Building className="w-4 h-4 text-[#ff9800]" />
+            <div className="space-y-1">
+              <label className="font-headline font-bold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5 text-[11px]">
+                <Building className="w-3.5 h-3.5 text-[#D97706]" />
                 Type d&apos;ouvrage
               </label>
               <input
@@ -155,17 +155,17 @@ export default function QuoteModal({ isOpen, onClose }) {
                 name="projectType"
                 value={formData.projectType}
                 onChange={handleChange}
-                placeholder="Ex: Villa R+1, Immeuble R+3, Hangar, Mur..."
-                className="w-full p-3 rounded-xl border border-[#dbc2ad]/50 bg-white font-medium text-[#1b1c1c] focus:outline-none focus:ring-2 focus:ring-[#ff9800]"
+                placeholder="Ex: R+2, Villa, Hangar, Mur..."
+                className="w-full p-2.5 rounded-lg border border-neutral-300 bg-white font-medium text-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
               />
             </div>
           </div>
 
           {/* Contact Details */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="space-y-1.5">
-              <label className="font-headline font-bold uppercase tracking-wider text-[#1b1c1c] flex items-center gap-2">
-                <User className="w-4 h-4 text-[#ff9800]" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="space-y-1">
+              <label className="font-headline font-bold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5 text-[11px]">
+                <User className="w-3.5 h-3.5 text-[#D97706]" />
                 Votre Nom ou Entreprise
               </label>
               <input
@@ -173,15 +173,15 @@ export default function QuoteModal({ isOpen, onClose }) {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder="Ex: M. Ndong / Entreprise X"
-                className="w-full p-3 rounded-xl border border-[#dbc2ad]/50 bg-white font-medium text-[#1b1c1c] focus:outline-none focus:ring-2 focus:ring-[#ff9800]"
+                placeholder="Ex: M. Ndong / Entreprise"
+                className="w-full p-2.5 rounded-lg border border-neutral-300 bg-white font-medium text-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
               />
             </div>
 
-            <div className="space-y-1.5">
-              <label className="font-headline font-bold uppercase tracking-wider text-[#1b1c1c] flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#ff9800]" />
-                Numéro Téléphone / WhatsApp
+            <div className="space-y-1">
+              <label className="font-headline font-bold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5 text-[11px]">
+                <Phone className="w-3.5 h-3.5 text-[#D97706]" />
+                WhatsApp / Téléphone
               </label>
               <input
                 type="text"
@@ -189,45 +189,45 @@ export default function QuoteModal({ isOpen, onClose }) {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="Ex: +241 76 23 70 90"
-                className="w-full p-3 rounded-xl border border-[#dbc2ad]/50 bg-white font-medium text-[#1b1c1c] focus:outline-none focus:ring-2 focus:ring-[#ff9800]"
+                className="w-full p-2.5 rounded-lg border border-neutral-300 bg-white font-medium text-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900"
               />
             </div>
           </div>
 
-          {/* Details / Notes */}
-          <div className="space-y-1.5">
-            <label className="font-headline font-bold uppercase tracking-wider text-[#1b1c1c] flex items-center gap-2">
-              <FileText className="w-4 h-4 text-[#ff9800]" />
-              Description succincte du projet & objectifs
+          {/* Description */}
+          <div className="space-y-1">
+            <label className="font-headline font-bold uppercase tracking-wider text-neutral-700 flex items-center gap-1.5 text-[11px]">
+              <FileText className="w-3.5 h-3.5 text-[#D97706]" />
+              Précisions &amp; objectifs
             </label>
             <textarea
               name="description"
-              rows={3}
+              rows={2}
               value={formData.description}
               onChange={handleChange}
-              placeholder="Précisez la surface approximative, le délai envisagé ou vos contraintes particulières..."
-              className="w-full p-3 rounded-xl border border-[#dbc2ad]/50 bg-white font-medium text-[#1b1c1c] focus:outline-none focus:ring-2 focus:ring-[#ff9800] resize-none"
+              placeholder="Surface estimée, délais, besoins en plans de coffrage ou ferraillage..."
+              className="w-full p-2.5 rounded-lg border border-neutral-300 bg-white font-medium text-neutral-900 focus:outline-none focus:ring-1 focus:ring-neutral-900 resize-none"
             />
           </div>
 
-          {/* Transmission CTAs */}
-          <div className="pt-3 border-t border-[#dbc2ad]/30 flex flex-col sm:flex-row gap-3">
+          {/* Actions */}
+          <div className="pt-2 flex flex-col sm:flex-row gap-2">
             <button
               type="button"
               onClick={handleWhatsAppSubmit}
-              className="flex-1 bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-5 rounded-xl font-headline font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-[#25D366]/20 transition-all active:scale-95"
+              className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 px-4 rounded-full font-headline font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm"
             >
-              <MessageSquare className="w-4 h-4" />
-              <span>Transmettre sur WhatsApp (Immédiat)</span>
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>Transmettre sur WhatsApp</span>
             </button>
 
             <button
               type="button"
               onClick={handleEmailSubmit}
-              className="flex-1 bg-[#1b1c1c] hover:bg-[#8b5000] text-white py-3.5 px-5 rounded-xl font-headline font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95"
+              className="flex-1 bg-[#111827] hover:bg-[#D97706] text-white py-2.5 px-4 rounded-full font-headline font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-sm"
             >
-              <Mail className="w-4 h-4" />
-              <span>Envoyer par E-mail</span>
+              <Mail className="w-3.5 h-3.5" />
+              <span>Envoyer par courriel</span>
             </button>
           </div>
         </form>

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { CheckCircle2, Cpu, Award, BookOpen } from "lucide-react";
+import { CheckCircle2, Cpu, BookOpen, Award } from "lucide-react";
 import { COMPANY_INFO } from "../data/companyData";
 
 export default function SkillsSection() {
@@ -25,95 +25,85 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="logiciels" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#fcf9f8] relative">
-      <div className="max-w-7xl mx-auto space-y-16">
-        {/* Section Header */}
-        <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-[0.25em] text-[#8b5000]">
-            <span className="w-8 h-[2px] bg-[#ff9800]"></span>
-            Outils &amp; Référentiels d&apos;Ingénierie
-          </div>
-          <h2 className="font-headline text-3xl sm:text-5xl font-black uppercase text-[#1b1c1c] tracking-tight">
-            Écosystème Logiciel &amp; Compétences
+    <section id="logiciels" className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50/60 border-b border-neutral-200/80">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Header */}
+        <div className="max-w-2xl space-y-2">
+          <span className="font-mono text-[10px] tracking-widest uppercase text-[#D97706] font-semibold">
+            {"// OUTILS DE CALCUL & RÉFÉRENTIELS"}
+          </span>
+          <h2 className="font-headline text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#111827]">
+            Écosystème Logiciel &amp; Normes
           </h2>
-          <p className="text-sm sm:text-base text-[#1b1c1c]/70 leading-relaxed">
-            La précision de l&apos;ingénieur repose sur la maîtrise d&apos;outils de modélisation 
-            numérique avancés couplée à une connaissance approfondie des normes internationales.
+          <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
+            La précision de l&apos;ingénieur repose sur la modélisation tridimensionnelle 
+            avancée et le respect rigoureux des codes internationaux de construction.
           </p>
         </div>
 
-        {/* Software Cards */}
-        <div className="space-y-6">
-          <div className="flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-wider text-[#8b5000]">
-            <Cpu className="w-4 h-4 text-[#ff9800]" />
-            <span>Logiciels de Calcul & Modélisation</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {COMPANY_INFO.software.map((soft) => (
-              <div
-                key={soft.name}
-                className="bg-white rounded-2xl p-6 border border-[#dbc2ad]/30 shadow-sm hover:border-[#ff9800] hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-headline font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-[#ff9800]/15 text-[#8b5000]">
-                      {soft.tag}
-                    </span>
-                    <span className="font-headline text-sm font-bold text-[#8b5000]">
-                      {soft.level}%
-                    </span>
-                  </div>
-
-                  <h3 className="font-headline text-lg font-bold text-[#1b1c1c]">
-                    {soft.name}
-                  </h3>
-
-                  <p className="text-xs text-[#1b1c1c]/70 leading-relaxed">
-                    {soft.desc}
-                  </p>
-                </div>
-
-                {/* Progress Gauge */}
-                <div className="pt-4 mt-4 border-t border-[#dbc2ad]/20">
-                  <div className="w-full bg-[#f0eded] h-2 rounded-full overflow-hidden">
-                    <div
-                      className="bg-gradient-to-r from-[#8b5000] to-[#ff9800] h-full rounded-full transition-all duration-1000"
-                      style={{ width: `${soft.level}%` }}
-                    />
-                  </div>
-                  <span className="text-[10px] text-[#1b1c1c]/50 font-medium block mt-1.5">
-                    {soft.category}
+        {/* 4 Software Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {COMPANY_INFO.software.map((soft) => (
+            <div
+              key={soft.name}
+              className="bg-white rounded-xl p-5 border border-neutral-200 shadow-sm hover:border-neutral-900 transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#D97706] font-semibold">
+                    {soft.tag}
+                  </span>
+                  <span className="font-mono text-xs font-bold text-neutral-700">
+                    {soft.level}%
                   </span>
                 </div>
+
+                <h3 className="font-headline text-sm font-bold uppercase text-neutral-900">
+                  {soft.name}
+                </h3>
+
+                <p className="text-[11px] text-neutral-500 leading-relaxed">
+                  {soft.desc}
+                </p>
               </div>
-            ))}
-          </div>
+
+              <div className="pt-3 mt-4 border-t border-neutral-100">
+                <div className="w-full bg-neutral-100 h-1.5 rounded-full overflow-hidden">
+                  <div
+                    className="bg-[#111827] h-full rounded-full transition-all duration-700"
+                    style={{ width: `${soft.level}%` }}
+                  />
+                </div>
+                <span className="font-mono text-[9px] text-neutral-400 block mt-1">
+                  {soft.category}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Norms and Field Expertise Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
-          {/* Normes & Référentiels Réglementaires */}
-          <div className="bg-white rounded-2xl p-7 border border-[#dbc2ad]/30 shadow-sm space-y-6">
+        {/* Standards and Skills Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+          {/* Normes */}
+          <div className="bg-white rounded-xl p-6 border border-neutral-200 shadow-sm space-y-4">
             <div className="flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-[#ff9800]" />
-              <h3 className="font-headline text-lg font-bold uppercase text-[#1b1c1c] tracking-tight">
-                Normes & Règlements Appliqués
+              <BookOpen className="w-4 h-4 text-[#D97706]" />
+              <h3 className="font-headline text-sm font-bold uppercase tracking-wider text-neutral-900">
+                Normes &amp; Codes Techniques Appliqués
               </h3>
             </div>
-
-            <div className="space-y-3">
+            <div className="space-y-2">
               {normList.map((norm, idx) => (
                 <div
                   key={idx}
-                  className="p-3.5 rounded-xl bg-[#fcf9f8] border border-[#dbc2ad]/20 flex items-start gap-3"
+                  className="p-2.5 rounded-lg bg-neutral-50 border border-neutral-100 flex items-start gap-2.5"
                 >
-                  <Award className="w-4 h-4 text-[#8b5000] shrink-0 mt-0.5" />
+                  <Award className="w-3.5 h-3.5 text-[#D97706] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-headline font-bold text-xs uppercase text-[#8b5000] block">
+                    <span className="font-mono text-[10px] font-bold uppercase text-neutral-800 block">
                       {norm.code}
                     </span>
-                    <span className="text-xs text-[#1b1c1c]/80 mt-0.5 block">
+                    <span className="text-[11px] text-neutral-500 block">
                       {norm.title}
                     </span>
                   </div>
@@ -122,25 +112,22 @@ export default function SkillsSection() {
             </div>
           </div>
 
-          {/* Expertises Métier */}
-          <div className="bg-white rounded-2xl p-7 border border-[#dbc2ad]/30 shadow-sm space-y-6">
+          {/* Operational Field Skills */}
+          <div className="bg-white rounded-xl p-6 border border-neutral-200 shadow-sm space-y-4">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-              <h3 className="font-headline text-lg font-bold uppercase text-[#1b1c1c] tracking-tight">
-                Savoir-Faire Opérationnel
+              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+              <h3 className="font-headline text-sm font-bold uppercase tracking-wider text-neutral-900">
+                Savoir-Faire Opérationnel Terrain
               </h3>
             </div>
-
-            <div className="grid grid-cols-1 gap-2.5">
+            <div className="grid grid-cols-1 gap-2">
               {expertises.map((exp, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-[#fcf9f8] transition-colors border-b border-[#dbc2ad]/15"
+                  className="flex items-center justify-between py-2 px-2.5 rounded-lg hover:bg-neutral-50 transition-colors border-b border-neutral-100 text-xs text-neutral-700"
                 >
-                  <span className="font-headline text-xs font-medium uppercase text-[#1b1c1c]/90">
-                    {exp}
-                  </span>
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 ml-2" />
+                  <span className="font-medium text-[11px]">{exp}</span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 ml-2" />
                 </div>
               ))}
             </div>

@@ -1,11 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { MapPin, ArrowUpRight, Filter, Eye, Layers } from "lucide-react";
+import { MapPin, ArrowUpRight, LayoutGrid, ListFilter, Eye, Layers } from "lucide-react";
 import { PROJECTS, CATEGORIES } from "../data/projectsData";
 
 export default function PortfolioSection({ onSelectProject }) {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [viewMode, setViewMode] = useState("grid"); // "grid" or "table"
 
   const filteredProjects =
     activeCategory === "all"
@@ -13,141 +14,205 @@ export default function PortfolioSection({ onSelectProject }) {
       : PROJECTS.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="realisations" className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative">
-      <div className="max-w-7xl mx-auto">
+    <section id="ouvrages" className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-neutral-200/80">
+      <div className="max-w-6xl mx-auto space-y-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-[0.25em] text-[#8b5000]">
-              <span className="w-8 h-[2px] bg-[#ff9800]"></span>
-              Archives &amp; Réalisations de Chantiers
-            </div>
-            <h2 className="font-headline text-3xl sm:text-5xl font-black uppercase text-[#1b1c1c] tracking-tight">
-              Nos Réalisations
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-neutral-200">
+          <div className="space-y-2">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-[#D97706] font-semibold">
+              {"// ARCHIVES D'INGÉNIERIE & RÉALISATIONS"}
+            </span>
+            <h2 className="font-headline text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#111827]">
+              Ouvrages &amp; Projets Réalisés
             </h2>
-            <p className="text-sm sm:text-base text-[#1b1c1c]/70 max-w-xl">
-              De Libreville à l&apos;intérieur du Gabon : découvrez nos ouvrages de bâtiment, 
-              voies de circulation et soutènements géotechniques calculés et exécutés avec rigueur.
+            <p className="text-xs sm:text-sm text-neutral-500 max-w-lg">
+              Sélection de structures béton armé, aménagements routiers et ouvrages géotechniques 
+              conçus ou supervisés au Gabon par Woodlyam Engineering.
             </p>
           </div>
 
-          {/* Quick Counter */}
-          <div className="bg-[#fcf9f8] p-4 rounded-xl border border-[#dbc2ad]/30 flex items-center gap-4 shrink-0">
-            <div className="text-right">
-              <span className="block text-2xl font-headline font-black text-[#8b5000]">
-                {PROJECTS.length}
-              </span>
-              <span className="text-[10px] uppercase font-bold tracking-wider text-[#1b1c1c]/50">
-                Ouvrages documentés
-              </span>
-            </div>
-            <div className="w-[1px] h-8 bg-[#dbc2ad]/40" />
-            <div className="text-right">
-              <span className="block text-2xl font-headline font-black text-[#ff9800]">
-                35+
-              </span>
-              <span className="text-[10px] uppercase font-bold tracking-wider text-[#1b1c1c]/50">
-                Photos de chantiers
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
-          <div className="flex items-center gap-1.5 text-xs text-[#1b1c1c]/50 mr-2 shrink-0">
-            <Filter className="w-3.5 h-3.5 text-[#ff9800]" />
-            <span className="font-semibold uppercase tracking-wider text-[11px]">Filtrer :</span>
-          </div>
-          {CATEGORIES.map((cat) => (
+          {/* View Mode Switcher (Grid vs Table) */}
+          <div className="flex items-center gap-1 p-1 bg-neutral-100 rounded-lg border border-neutral-200/80 shrink-0">
             <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-lg text-xs font-headline font-bold uppercase tracking-wider transition-all shrink-0 ${
-                activeCategory === cat.id
-                  ? "bg-[#1b1c1c] text-[#ff9800] shadow-md scale-105"
-                  : "bg-[#f0eded] text-[#1b1c1c]/70 hover:bg-[#e4dfdd] hover:text-[#1b1c1c]"
+              onClick={() => setViewMode("grid")}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-headline font-semibold transition-all ${
+                viewMode === "grid"
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-neutral-500 hover:text-neutral-900"
               }`}
             >
-              {cat.label}
+              <LayoutGrid className="w-3.5 h-3.5" />
+              <span>Cartes</span>
             </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <article
-              key={project.id}
-              onClick={() => onSelectProject(project)}
-              className="group bg-[#fcf9f8] rounded-2xl overflow-hidden border border-[#dbc2ad]/30 hover:border-[#ff9800]/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col cursor-pointer"
+            <button
+              onClick={() => setViewMode("table")}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-headline font-semibold transition-all ${
+                viewMode === "table"
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-neutral-500 hover:text-neutral-900"
+              }`}
             >
-              {/* Card Image Container */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-900">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-
-                {/* Top Badges */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                  <span className="px-2.5 py-1 text-[10px] font-headline font-bold uppercase tracking-wider rounded-md bg-[#1b1c1c]/80 backdrop-blur-md text-[#ff9800] border border-[#ff9800]/30">
-                    {project.categoryLabel}
-                  </span>
-                  <span className="px-2.5 py-1 text-[10px] font-headline font-bold uppercase tracking-wider rounded-md bg-emerald-500/90 text-white backdrop-blur-md">
-                    {project.year}
-                  </span>
-                </div>
-
-                {/* Bottom Overlay Location */}
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 text-white text-xs font-medium">
-                  <MapPin className="w-3.5 h-3.5 text-[#ff9800]" />
-                  <span>{project.location}</span>
-                </div>
-
-                {/* Hover CTA Indicator */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 backdrop-blur-[2px]">
-                  <span className="inline-flex items-center gap-2 bg-[#ff9800] text-[#1b1c1c] font-headline font-bold text-xs uppercase px-4 py-2.5 rounded-lg shadow-lg transform -translate-y-2 group-hover:translate-y-0 transition-transform">
-                    <Eye className="w-4 h-4" />
-                    <span>Fiche Technique</span>
-                  </span>
-                </div>
-              </div>
-
-              {/* Card Content */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <span className="text-[10px] font-headline font-bold tracking-widest uppercase text-[#8b5000]">
-                    {project.status}
-                  </span>
-                  <h3 className="font-headline text-lg font-black uppercase text-[#1b1c1c] group-hover:text-[#8b5000] transition-colors leading-snug">
-                    {project.title}
-                  </h3>
-                  <p className="text-xs text-[#1b1c1c]/70 line-clamp-2 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Technical Meta Footer */}
-                <div className="pt-3 border-t border-[#dbc2ad]/20 flex items-center justify-between text-xs">
-                  <span className="text-[#1b1c1c]/60 flex items-center gap-1">
-                    <Layers className="w-3.5 h-3.5 text-[#8b5000]" />
-                    <span className="truncate max-w-[170px]">{project.technicalSpecs?.structure || "Béton armé"}</span>
-                  </span>
-
-                  <span className="text-[#ff9800] font-headline font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                    <span>Détails</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </div>
-            </article>
-          ))}
+              <ListFilter className="w-3.5 h-3.5" />
+              <span>Nomenclature</span>
+            </button>
+          </div>
         </div>
+
+        {/* Filter Pills with Counts */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+          {CATEGORIES.map((cat) => {
+            const count =
+              cat.id === "all"
+                ? PROJECTS.length
+                : PROJECTS.filter((p) => p.category === cat.id).length;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-headline font-medium transition-all shrink-0 flex items-center gap-2 ${
+                  activeCategory === cat.id
+                    ? "bg-[#111827] text-white shadow-sm"
+                    : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200/70"
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span
+                  className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full ${
+                    activeCategory === cat.id
+                      ? "bg-white/20 text-white"
+                      : "bg-neutral-200 text-neutral-700"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* --- VIEW 1: REFINED GRID VIEW (CONTROLLED COMPACT PROPORTIONS) --- */}
+        {viewMode === "grid" && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project, idx) => (
+              <article
+                key={project.id}
+                onClick={() => onSelectProject(project)}
+                className="group bg-neutral-50/60 rounded-xl border border-neutral-200/90 hover:border-neutral-900 transition-all duration-300 overflow-hidden flex flex-col justify-between cursor-pointer hover:shadow-lg"
+              >
+                {/* Image Frame with CONTROLLED COMPACT HEIGHT (No Giant Banners) */}
+                <div className="relative h-44 sm:h-48 w-full overflow-hidden bg-neutral-900">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                  {/* Corner Badges */}
+                  <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
+                    <span className="px-2 py-0.5 rounded bg-black/60 backdrop-blur-md text-white font-mono text-[9px] uppercase tracking-wider border border-white/10">
+                      0{idx + 1} {"//"} {project.categoryLabel}
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-emerald-500 text-white font-headline text-[9px] font-bold uppercase">
+                      {project.year}
+                    </span>
+                  </div>
+
+                  {/* Location Pin */}
+                  <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 text-white text-[11px] font-medium">
+                    <MapPin className="w-3 h-3 text-[#F59E0B]" />
+                    <span>{project.location}</span>
+                  </div>
+                </div>
+
+                {/* Content Container */}
+                <div className="p-4 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[#D97706] font-semibold block">
+                      {project.status}
+                    </span>
+                    <h3 className="font-headline text-sm font-bold uppercase tracking-tight text-[#111827] group-hover:text-[#D97706] transition-colors line-clamp-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs text-neutral-500 line-clamp-2 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Aesthetic Footer Link */}
+                  <div className="pt-3 border-t border-neutral-200/60 flex items-center justify-between text-xs">
+                    <span className="font-mono text-[10px] text-neutral-400 truncate max-w-[170px]">
+                      {project.technicalSpecs?.structure || "Béton armé"}
+                    </span>
+                    <span className="inline-flex items-center gap-1 font-headline font-semibold text-[11px] text-neutral-800 group-hover:text-[#D97706] transition-colors">
+                      <span>Fiche technique</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+
+        {/* --- VIEW 2: TECHNICAL NOMENCLATURE / TABLE VIEW (ENGINEERING STANDARD) --- */}
+        {viewMode === "table" && (
+          <div className="rounded-xl border border-neutral-200 bg-white overflow-hidden shadow-sm">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="bg-neutral-100 border-b border-neutral-200 text-neutral-600 font-mono text-[10px] uppercase tracking-wider">
+                    <th className="py-3 px-4">Réf.</th>
+                    <th className="py-3 px-4">Ouvrage</th>
+                    <th className="py-3 px-4">Localisation</th>
+                    <th className="py-3 px-4">Système Constructif</th>
+                    <th className="py-3 px-4">Volume / Surface</th>
+                    <th className="py-3 px-4">Statut</th>
+                    <th className="py-3 px-4 text-right">Dossier</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-neutral-200/60 font-body">
+                  {filteredProjects.map((p, idx) => (
+                    <tr
+                      key={p.id}
+                      onClick={() => onSelectProject(p)}
+                      className="hover:bg-neutral-50/80 transition-colors cursor-pointer group"
+                    >
+                      <td className="py-3.5 px-4 font-mono text-[11px] text-neutral-400">
+                        0{idx + 1}
+                      </td>
+                      <td className="py-3.5 px-4 font-headline font-bold text-neutral-900 group-hover:text-[#D97706] transition-colors">
+                        {p.title}
+                      </td>
+                      <td className="py-3.5 px-4 text-neutral-500">
+                        {p.location}
+                      </td>
+                      <td className="py-3.5 px-4 font-mono text-[11px] text-neutral-600">
+                        {p.technicalSpecs?.structure || "Béton armé"}
+                      </td>
+                      <td className="py-3.5 px-4 font-mono text-[11px] text-neutral-500">
+                        {p.surface || p.technicalSpecs?.volumeBeton || "—"}
+                      </td>
+                      <td className="py-3.5 px-4">
+                        <span className="inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          {p.status}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 text-right">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-headline font-semibold text-neutral-700 group-hover:text-[#D97706]">
+                          <span>Détails</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

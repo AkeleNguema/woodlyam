@@ -9,72 +9,63 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#141515] text-white pt-16 pb-28 lg:pb-16 px-4 sm:px-6 lg:px-8 border-t border-[#ff9800]/20 relative overflow-hidden">
-      {/* Blueprint grid accent */}
-      <div className="absolute inset-0 blueprint-grid opacity-5 pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto relative z-10 space-y-12">
-        {/* Top Footer Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-white/10">
+    <footer className="bg-[#0F1115] text-white pt-14 pb-24 lg:pb-14 px-4 sm:px-6 lg:px-8 border-t border-neutral-800">
+      <div className="max-w-6xl mx-auto space-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-neutral-800">
           {/* Brand Info */}
-          <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-[#ff9800] text-[#1b1c1c] flex items-center justify-center font-bold text-xl font-headline">
+          <div className="lg:col-span-5 space-y-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-white text-neutral-900 flex items-center justify-center font-headline font-black text-sm">
                 W
               </div>
-              <div>
-                <span className="font-headline text-2xl font-black tracking-[0.2em] block leading-none text-white">
-                  WOODLYAM
-                </span>
-                <span className="text-[9px] uppercase tracking-[0.25em] text-[#ff9800] font-bold">
-                  ENGINEERING • GABON
-                </span>
-              </div>
+              <span className="font-headline text-lg font-black tracking-[0.2em] text-white uppercase">
+                WOODLYAM
+              </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-neutral-400 max-w-sm leading-relaxed">
+            <p className="text-xs text-neutral-400 max-w-sm leading-relaxed">
               {COMPANY_INFO.slogan}. Bureau d&apos;études structures, voiries (VRD), soutènements et maîtrise d&apos;œuvre d&apos;exécution à Libreville et sur toute l&apos;étendue du territoire gabonais.
             </p>
 
-            <div className="inline-flex items-center gap-2 text-xs text-neutral-300 bg-white/5 px-3 py-1.5 rounded-lg border border-white/10">
-              <ShieldCheck className="w-4 h-4 text-[#ff9800]" />
+            <div className="inline-flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 bg-neutral-900/90 px-3 py-1 rounded-full border border-neutral-800">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#F59E0B]" />
               <span>Conformité Eurocodes &amp; BAEL 91</span>
             </div>
           </div>
 
           {/* Quick Nav Links */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="font-headline text-xs font-bold uppercase tracking-widest text-[#ff9800]">
-              Navigation
+          <div className="lg:col-span-3 space-y-2.5">
+            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-neutral-400">
+              {"// NAVIGATION"}
             </h4>
-            <ul className="space-y-2 text-xs text-neutral-300">
+            <ul className="space-y-1.5 text-xs text-neutral-300 font-headline">
               <li>
-                <a href="#realisations" className="hover:text-[#ff9800] transition-colors">
-                  Réalisations &amp; Projets
+                <a href="#ouvrages" className="hover:text-[#F59E0B] transition-colors">
+                  Ouvrages &amp; Projets
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#ff9800] transition-colors">
-                  Services &amp; Compétences
+                <a href="#expertises" className="hover:text-[#F59E0B] transition-colors">
+                  Expertises &amp; Métiers
                 </a>
               </li>
               <li>
-                <a href="#methodologie" className="hover:text-[#ff9800] transition-colors">
-                  Processus d&apos;Ingénierie
+                <a href="#methode" className="hover:text-[#F59E0B] transition-colors">
+                  Méthodologie Qualité
                 </a>
               </li>
               <li>
-                <a href="#logiciels" className="hover:text-[#ff9800] transition-colors">
+                <a href="#logiciels" className="hover:text-[#F59E0B] transition-colors">
                   Outils &amp; Éléments Finis
                 </a>
               </li>
               <li>
-                <a href="#apropos" className="hover:text-[#ff9800] transition-colors">
+                <a href="#ingenieur" className="hover:text-[#F59E0B] transition-colors">
                   L&apos;Ingénieur Fondateur
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#ff9800] transition-colors">
+                <a href="#contact" className="hover:text-[#F59E0B] transition-colors">
                   Coordonnées &amp; Devis
                 </a>
               </li>
@@ -82,34 +73,34 @@ export default function Footer() {
           </div>
 
           {/* Direct Contacts */}
-          <div className="lg:col-span-4 space-y-3">
-            <h4 className="font-headline text-xs font-bold uppercase tracking-widest text-[#ff9800]">
-              Coordonnées Officielles
+          <div className="lg:col-span-4 space-y-2.5">
+            <h4 className="font-mono text-[10px] font-bold uppercase tracking-widest text-neutral-400">
+              {"// COORDONNÉES"}
             </h4>
-            <div className="space-y-2.5 text-xs text-neutral-300">
-              <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-[#ff9800] shrink-0" />
-                <span>{COMPANY_INFO.contacts.address}</span>
+            <div className="space-y-2 text-xs text-neutral-300">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-3.5 h-3.5 text-[#F59E0B] shrink-0" />
+                <span className="text-neutral-400">{COMPANY_INFO.contacts.address}</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#ff9800] shrink-0" />
+              <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-[#F59E0B] shrink-0" />
                 <a href={`tel:${COMPANY_INFO.contacts.phoneRaw}`} className="hover:text-white font-mono">
                   {COMPANY_INFO.contacts.phone}
                 </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#ff9800] shrink-0" />
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#F59E0B] shrink-0" />
                 <a href={`mailto:${COMPANY_INFO.contacts.email}`} className="hover:text-white font-mono truncate">
                   {COMPANY_INFO.contacts.email}
                 </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <MessageSquare className="w-4 h-4 text-[#25D366] shrink-0" />
+              <div className="flex items-center gap-2">
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                 <a
                   href={COMPANY_INFO.contacts.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#25D366] hover:underline font-bold"
+                  className="text-emerald-400 hover:underline font-mono text-[11px]"
                 >
                   Ouvrir WhatsApp direct
                 </a>
@@ -118,24 +109,19 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Strip: Copyright & Back to Top */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
-          <div className="space-y-1 text-center sm:text-left">
-            <p className="font-headline font-bold uppercase tracking-wider text-neutral-300">
-              © {new Date().getFullYear()} WOODLYAM ENGINEERING — Tous droits réservés.
-            </p>
-            <p className="text-[11px] text-neutral-500">
-              Mendame Ndong Warex Lansky • Ingénieur Génie Civil • Libreville, République Gabonaise.
-            </p>
-          </div>
+        {/* Bottom Strip */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500 font-mono">
+          <p>
+            © {new Date().getFullYear()} WOODLYAM ENGINEERING // {COMPANY_INFO.founder.fullName} • LIBREVILLE, GABON
+          </p>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-[#ff9800] hover:text-[#1b1c1c] text-white border border-white/10 transition-all font-headline text-[11px] font-bold uppercase tracking-wider"
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800 transition-colors"
             aria-label="Remonter en haut de page"
           >
             <span>Haut de page</span>
-            <ArrowUp className="w-3.5 h-3.5" />
+            <ArrowUp className="w-3 h-3" />
           </button>
         </div>
       </div>

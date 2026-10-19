@@ -8,7 +8,7 @@ import {
   Clock,
   Copy,
   ExternalLink,
-  ShieldCheck,
+  ArrowUpRight,
   Send,
 } from "lucide-react";
 import { COMPANY_INFO } from "../data/companyData";
@@ -20,188 +20,186 @@ export default function ContactSection({ onShowToast, onOpenQuote }) {
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative">
-      <div className="max-w-7xl mx-auto space-y-16">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="max-w-6xl mx-auto space-y-12">
         {/* Header */}
-        <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-[0.25em] text-[#8b5000]">
-            <span className="w-8 h-[2px] bg-[#ff9800]"></span>
-            Prise de Contact Directe
-          </div>
-          <h2 className="font-headline text-3xl sm:text-5xl font-black uppercase text-[#1b1c1c] tracking-tight">
+        <div className="max-w-2xl space-y-2">
+          <span className="font-mono text-[10px] tracking-widest uppercase text-[#D97706] font-semibold">
+            {"// CONTACT & DÉMARRAGE DE PROJET"}
+          </span>
+          <h2 className="font-headline text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#111827]">
             Engager une Collaboration
           </h2>
-          <p className="text-sm sm:text-base text-[#1b1c1c]/70 leading-relaxed">
-            Vous avez un projet de construction, un besoin d&apos;audit structural, ou des plans à valider ?
-            Contactez directement l&apos;ingénieur ou demandez une pré-étude.
+          <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
+            Vous planifiez un chantier, avez besoin d&apos;une note de calcul certifiée ou d&apos;un audit structurel ?
+            Contactez directement le bureau d&apos;études Woodlyam Engineering.
           </p>
         </div>
 
-        {/* 4 Interactive Contact Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* WhatsApp Card */}
-          <div className="bg-[#fcf9f8] p-6 rounded-2xl border border-[#dbc2ad]/40 shadow-sm hover:border-[#25D366] transition-all flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#25D366]/15 text-[#128C7E] flex items-center justify-center">
-                <MessageSquare className="w-6 h-6" />
+        {/* 4 Clean Communication Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {/* WhatsApp Direct */}
+          <div className="bg-neutral-50/70 p-5 rounded-xl border border-neutral-200/80 hover:border-emerald-500 transition-all duration-300 flex flex-col justify-between group">
+            <div className="space-y-3">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-200">
+                <MessageSquare className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-[10px] font-headline font-bold uppercase tracking-wider text-[#128C7E] block">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-emerald-600 font-bold block">
                   Canal Prioritaire
                 </span>
-                <h3 className="font-headline text-lg font-bold text-[#1b1c1c] mt-0.5">
+                <h3 className="font-headline text-sm font-bold text-neutral-900 mt-0.5">
                   WhatsApp Direct
                 </h3>
-                <p className="text-xs text-[#1b1c1c]/70 mt-1 font-mono font-medium">
+                <p className="font-mono text-xs text-neutral-500 mt-1">
                   {COMPANY_INFO.contacts.phone}
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 mt-6 border-t border-[#dbc2ad]/20 flex items-center gap-2">
+            <div className="pt-3 mt-4 border-t border-neutral-200/60 flex items-center gap-2">
               <a
                 href={COMPANY_INFO.contacts.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-[#25D366] hover:bg-[#20ba59] text-white py-2 px-3 rounded-lg text-xs font-headline font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-1.5 px-3 rounded-lg text-xs font-headline font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
               >
                 <span>Écrire</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
               <button
                 onClick={() => copyToClipboard(COMPANY_INFO.contacts.phone, "Numéro WhatsApp")}
-                className="p-2 rounded-lg bg-white border border-[#dbc2ad]/30 hover:bg-[#f0eded] text-[#1b1c1c]/70 hover:text-[#1b1c1c] transition-colors"
+                className="p-1.5 rounded-lg bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors"
                 title="Copier le numéro"
                 aria-label="Copier le numéro WhatsApp"
               >
-                <Copy className="w-4 h-4" />
+                <Copy className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
 
-          {/* Phone Card */}
-          <div className="bg-[#fcf9f8] p-6 rounded-2xl border border-[#dbc2ad]/40 shadow-sm hover:border-[#ff9800] transition-all flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#ff9800]/15 text-[#8b5000] flex items-center justify-center">
-                <Phone className="w-6 h-6" />
+          {/* Appel Téléphonique */}
+          <div className="bg-neutral-50/70 p-5 rounded-xl border border-neutral-200/80 hover:border-neutral-900 transition-all duration-300 flex flex-col justify-between group">
+            <div className="space-y-3">
+              <div className="w-9 h-9 rounded-lg bg-neutral-200 text-neutral-800 flex items-center justify-center border border-neutral-300">
+                <Phone className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-[10px] font-headline font-bold uppercase tracking-wider text-[#8b5000] block">
+                <span className="font-mono text-[9px] uppercase tracking-wider text-neutral-500 font-bold block">
                   Ligne Téléphonique
                 </span>
-                <h3 className="font-headline text-lg font-bold text-[#1b1c1c] mt-0.5">
+                <h3 className="font-headline text-sm font-bold text-neutral-900 mt-0.5">
                   Appel Direct
                 </h3>
-                <p className="text-xs text-[#1b1c1c]/70 mt-1 font-mono font-medium">
+                <p className="font-mono text-xs text-neutral-500 mt-1">
                   {COMPANY_INFO.contacts.phone}
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 mt-6 border-t border-[#dbc2ad]/20 flex items-center gap-2">
+            <div className="pt-3 mt-4 border-t border-neutral-200/60 flex items-center gap-2">
               <a
                 href={`tel:${COMPANY_INFO.contacts.phoneRaw}`}
-                className="flex-1 bg-[#1b1c1c] hover:bg-[#8b5000] text-white py-2 px-3 rounded-lg text-xs font-headline font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                className="flex-1 bg-[#111827] hover:bg-[#D97706] text-white py-1.5 px-3 rounded-lg text-xs font-headline font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
               >
                 <span>Appeler</span>
                 <Phone className="w-3.5 h-3.5" />
               </a>
               <button
                 onClick={() => copyToClipboard(COMPANY_INFO.contacts.phone, "Numéro de téléphone")}
-                className="p-2 rounded-lg bg-white border border-[#dbc2ad]/30 hover:bg-[#f0eded] text-[#1b1c1c]/70 hover:text-[#1b1c1c] transition-colors"
+                className="p-1.5 rounded-lg bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors"
                 title="Copier le numéro"
                 aria-label="Copier le numéro de téléphone"
               >
-                <Copy className="w-4 h-4" />
+                <Copy className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
 
-          {/* Email Card */}
-          <div className="bg-[#fcf9f8] p-6 rounded-2xl border border-[#dbc2ad]/40 shadow-sm hover:border-[#EA4335] transition-all flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#EA4335]/15 text-[#EA4335] flex items-center justify-center">
-                <Mail className="w-6 h-6" />
+          {/* Courriel Professionnel */}
+          <div className="bg-neutral-50/70 p-5 rounded-xl border border-neutral-200/80 hover:border-rose-500 transition-all duration-300 flex flex-col justify-between group">
+            <div className="space-y-3">
+              <div className="w-9 h-9 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center border border-rose-200">
+                <Mail className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-[10px] font-headline font-bold uppercase tracking-wider text-[#EA4335] block">
-                  Courriel Professionnel
+                <span className="font-mono text-[9px] uppercase tracking-wider text-rose-600 font-bold block">
+                  Messagerie
                 </span>
-                <h3 className="font-headline text-lg font-bold text-[#1b1c1c] mt-0.5 truncate">
-                  Messagerie E-mail
+                <h3 className="font-headline text-sm font-bold text-neutral-900 mt-0.5">
+                  Courriel
                 </h3>
-                <p className="text-xs text-[#1b1c1c]/70 mt-1 font-mono truncate" title={COMPANY_INFO.contacts.email}>
+                <p className="font-mono text-[11px] text-neutral-500 mt-1 truncate" title={COMPANY_INFO.contacts.email}>
                   {COMPANY_INFO.contacts.email}
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 mt-6 border-t border-[#dbc2ad]/20 flex items-center gap-2">
+            <div className="pt-3 mt-4 border-t border-neutral-200/60 flex items-center gap-2">
               <a
                 href={`mailto:${COMPANY_INFO.contacts.email}`}
-                className="flex-1 bg-[#EA4335] hover:bg-[#d33426] text-white py-2 px-3 rounded-lg text-xs font-headline font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
+                className="flex-1 bg-white hover:bg-neutral-100 text-neutral-800 border border-neutral-300 py-1.5 px-3 rounded-lg text-xs font-headline font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors"
               >
                 <span>Écrire</span>
                 <Mail className="w-3.5 h-3.5" />
               </a>
               <button
                 onClick={() => copyToClipboard(COMPANY_INFO.contacts.email, "Adresse e-mail")}
-                className="p-2 rounded-lg bg-white border border-[#dbc2ad]/30 hover:bg-[#f0eded] text-[#1b1c1c]/70 hover:text-[#1b1c1c] transition-colors"
+                className="p-1.5 rounded-lg bg-white border border-neutral-200 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition-colors"
                 title="Copier l'e-mail"
                 aria-label="Copier l'adresse e-mail"
               >
-                <Copy className="w-4 h-4" />
+                <Copy className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
 
-          {/* Location & Office Hours */}
-          <div className="bg-[#fcf9f8] p-6 rounded-2xl border border-[#dbc2ad]/40 shadow-sm hover:border-[#8b5000] transition-all flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#8b5000]/15 text-[#8b5000] flex items-center justify-center">
-                <MapPin className="w-6 h-6" />
+          {/* Localisation & Horaires */}
+          <div className="bg-neutral-50/70 p-5 rounded-xl border border-neutral-200/80 flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="w-9 h-9 rounded-lg bg-neutral-200 text-neutral-700 flex items-center justify-center border border-neutral-300">
+                <MapPin className="w-4 h-4" />
               </div>
               <div>
-                <span className="text-[10px] font-headline font-bold uppercase tracking-wider text-[#8b5000] block">
-                  Siège &amp; Rayon d&apos;Action
+                <span className="font-mono text-[9px] uppercase tracking-wider text-neutral-500 font-bold block">
+                  Siège &amp; Rayon
                 </span>
-                <h3 className="font-headline text-lg font-bold text-[#1b1c1c] mt-0.5">
+                <h3 className="font-headline text-sm font-bold text-neutral-900 mt-0.5">
                   Libreville — Gabon
                 </h3>
-                <p className="text-xs text-[#1b1c1c]/70 mt-1">
+                <p className="text-xs text-neutral-500 mt-1">
                   Missions et déplacements sur tout le territoire national.
                 </p>
               </div>
             </div>
 
-            <div className="pt-4 mt-6 border-t border-[#dbc2ad]/20 text-[11px] text-[#1b1c1c]/70 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5 text-[#ff9800]" />
+            <div className="pt-3 mt-4 border-t border-neutral-200/60 text-[10px] font-mono text-neutral-400 flex items-center gap-1.5">
+              <Clock className="w-3 h-3 text-[#D97706]" />
               <span>{COMPANY_INFO.contacts.workingHours}</span>
             </div>
           </div>
         </div>
 
-        {/* Big CTA Banner for Structural Quote */}
-        <div className="bg-gradient-to-r from-[#1b1c1c] via-[#2A221B] to-[#1b1c1c] rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden border border-[#ff9800]/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-3 max-w-xl">
-            <div className="inline-flex items-center gap-2 text-[10px] font-headline font-bold uppercase tracking-widest text-[#ff9800] bg-white/10 px-3 py-1 rounded-full">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Études Préliminaires & Chiffrage Gratuit
-            </div>
-            <h3 className="font-headline text-2xl sm:text-4xl font-black uppercase tracking-tight">
-              Prêt à sécuriser votre prochain chantier ?
+        {/* Minimalist Architectural Quote Strip */}
+        <div className="bg-[#111827] text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md border border-neutral-800">
+          <div className="space-y-1.5 text-center sm:text-left">
+            <span className="font-mono text-[9px] text-[#F59E0B] uppercase tracking-widest block">
+              {"// ÉTUDES PRÉLIMINAIRES & CHIFFRAGE"}
+            </span>
+            <h3 className="font-headline text-lg sm:text-xl font-bold uppercase tracking-tight">
+              Prêt à dimensionner ou sécuriser votre ouvrage ?
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-              Recevez sous 24 à 48 heures une proposition technique détaillée, adaptée aux contraintes du sol et du cahier des charges.
+            <p className="text-xs text-neutral-400">
+              Recevez sous 24h à 48h une proposition technique adaptée à vos contraintes de sol.
             </p>
           </div>
 
           <button
             onClick={onOpenQuote}
-            className="shrink-0 bg-[#ff9800] hover:bg-[#ffa726] text-[#1b1c1c] px-8 py-4 rounded-xl font-headline font-bold text-xs uppercase tracking-wider shadow-xl hover:shadow-[#ff9800]/30 transition-all flex items-center gap-3 active:scale-95"
+            className="shrink-0 bg-[#D97706] hover:bg-[#F59E0B] text-white hover:text-neutral-900 px-6 py-3 rounded-full font-headline font-semibold text-xs uppercase tracking-wide transition-all shadow-sm active:scale-95 flex items-center gap-2"
           >
             <span>Demander une étude structure</span>
-            <Send className="w-4 h-4" />
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>

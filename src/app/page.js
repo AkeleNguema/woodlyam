@@ -28,7 +28,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcf9f8] text-[#1b1c1c] font-body selection:bg-[#ff9800] selection:text-[#653900]">
+    <div className="min-h-screen bg-[#FAFAFA] text-[#111827] font-body selection:bg-[#D97706] selection:text-white">
       {/* Top Floating App Bar */}
       <Navbar onOpenQuote={() => setIsQuoteOpen(true)} />
 

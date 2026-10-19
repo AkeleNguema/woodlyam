@@ -7,7 +7,7 @@ import {
   HardHat,
   CheckCircle2,
   Compass,
-  ArrowRight,
+  ArrowUpRight,
 } from "lucide-react";
 import { COMPANY_INFO } from "../data/companyData";
 
@@ -22,75 +22,71 @@ const iconMap = {
 
 export default function ServicesSection({ onOpenQuote }) {
   return (
-    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f6f3f2] relative overflow-hidden">
-      {/* Blueprint grid accent */}
-      <div className="technical-dots absolute inset-0 opacity-15 pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-[0.25em] text-[#8b5000]">
-            <span className="w-8 h-[2px] bg-[#ff9800]"></span>
-            Champs d&apos;Intervention &amp; Expertise
-          </div>
-          <h2 className="font-headline text-3xl sm:text-5xl font-black uppercase text-[#1b1c1c] tracking-tight">
-            Services &amp; Compétences Métier
+    <section id="expertises" className="py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50/60 border-b border-neutral-200/80">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Header */}
+        <div className="max-w-2xl space-y-2">
+          <span className="font-mono text-[10px] tracking-widest uppercase text-[#D97706] font-semibold">
+            {"// DOMAINES D'INTERVENTION & INGÉNIERIE"}
+          </span>
+          <h2 className="font-headline text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#111827]">
+            Nos Missions &amp; Compétences Métier
           </h2>
-          <p className="text-sm sm:text-base text-[#1b1c1c]/70 leading-relaxed">
-            De la note de calcul préliminaire à la réception finale sans réserve : un accompagnement 
-            technique rigoureux respectant les normes Eurocodes, BAEL 91 et les réalités des sols gabonais.
+          <p className="text-xs sm:text-sm text-neutral-500 leading-relaxed">
+            De la note de calcul préliminaire sous Eurocodes au contrôle physique intransigeant 
+            sur le chantier, nous garantissons la conformité structurelle de vos investissements.
           </p>
         </div>
 
-        {/* Services Cards Grid */}
+        {/* 6 Clean Engineering Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {COMPANY_INFO.services.map((service) => {
+          {COMPANY_INFO.services.map((service, idx) => {
             const IconComponent = iconMap[service.icon] || Building2;
             return (
               <div
                 key={service.id}
-                className="bg-white rounded-2xl p-7 border border-[#dbc2ad]/30 hover:border-[#ff9800] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-xl p-6 border border-neutral-200 hover:border-neutral-900 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="space-y-5">
-                  {/* Top Bar with Icon and Badge */}
+                <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-xl bg-[#ff9800]/15 text-[#8b5000] flex items-center justify-center group-hover:bg-[#ff9800] group-hover:text-[#1b1c1c] transition-colors">
-                      <IconComponent className="w-6 h-6" />
+                    <div className="w-10 h-10 rounded-lg bg-neutral-100 text-neutral-800 flex items-center justify-center group-hover:bg-[#111827] group-hover:text-white transition-colors duration-200">
+                      <IconComponent className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-headline font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-[#f0eded] text-[#8b5000]">
-                      {service.badge}
+                    <span className="font-mono text-[10px] text-neutral-400">
+                      0{idx + 1}
                     </span>
                   </div>
 
-                  {/* Title & Short Description */}
                   <div>
-                    <h3 className="font-headline text-xl font-bold uppercase text-[#1b1c1c] group-hover:text-[#8b5000] transition-colors">
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-[#D97706] font-semibold block">
+                      {service.badge}
+                    </span>
+                    <h3 className="font-headline text-base font-bold uppercase tracking-tight text-[#111827] mt-0.5 group-hover:text-[#D97706] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-xs text-[#1b1c1c]/70 mt-2 leading-relaxed">
+                    <p className="text-xs text-neutral-500 mt-2 leading-relaxed">
                       {service.shortDesc}
                     </p>
                   </div>
 
-                  {/* Details Bullet List */}
-                  <ul className="space-y-2 pt-2 border-t border-[#dbc2ad]/20 text-xs text-[#1b1c1c]/80">
-                    {service.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#ff9800] mt-1.5 shrink-0" />
-                        <span>{detail}</span>
+                  <ul className="space-y-1.5 pt-3 border-t border-neutral-100 text-xs text-neutral-600">
+                    {service.details.map((detail, dIdx) => (
+                      <li key={dIdx} className="flex items-start gap-2">
+                        <span className="w-1 h-1 rounded-full bg-[#D97706] mt-2 shrink-0" />
+                        <span className="text-[11px] leading-relaxed">{detail}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Bottom CTA Button */}
-                <div className="pt-6 mt-6 border-t border-[#dbc2ad]/20">
+                {/* Aesthetic Action Link */}
+                <div className="pt-4 mt-6 border-t border-neutral-100">
                   <button
                     onClick={onOpenQuote}
-                    className="w-full py-2.5 px-4 rounded-lg bg-[#fcf9f8] hover:bg-[#ff9800] text-[#1b1c1c] font-headline font-bold text-xs uppercase tracking-wider flex items-center justify-between border border-[#dbc2ad]/30 group-hover:border-[#ff9800] transition-all"
+                    className="w-full inline-flex items-center justify-between text-xs font-headline font-semibold text-neutral-700 hover:text-[#D97706] transition-colors group/btn py-1"
                   >
-                    <span>Demander une étude</span>
-                    <ArrowRight className="w-4 h-4 text-[#ff9800] group-hover:text-[#1b1c1c] group-hover:translate-x-1 transition-all" />
+                    <span>Étudier un projet similaire</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                   </button>
                 </div>
               </div>

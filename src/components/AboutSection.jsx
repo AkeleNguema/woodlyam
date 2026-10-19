@@ -1,103 +1,108 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Shield, Target, Compass, HardHat, Check, MessageSquare } from "lucide-react";
+import { Shield, Target, HardHat, ArrowUpRight, MessageSquare } from "lucide-react";
 import { COMPANY_INFO } from "../data/companyData";
 
 export default function AboutSection({ onOpenQuote }) {
   return (
-    <section id="apropos" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f6f3f2] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Image Column */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-neutral-900">
-              <Image
-                src="/projects/32.JPG"
-                alt="Ingénieur Mendame Ndong Warex Lansky sur chantier"
-                fill
-                sizes="(max-width: 1024px) 100vw, 450px"
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-              
-              {/* Floating Badge */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/95 backdrop-blur-md shadow-lg border border-[#dbc2ad]/40">
-                <span className="text-[10px] font-headline font-bold uppercase tracking-widest text-[#8b5000] block">
-                  Fondateur & Directeur Technique
-                </span>
-                <span className="font-headline text-lg font-black uppercase text-[#1b1c1c] block mt-0.5">
-                  {COMPANY_INFO.founder.fullName}
-                </span>
-                <span className="text-xs text-[#1b1c1c]/70 block mt-0.5">
-                  Ingénieur Génie Civil — Libreville, Gabon
-                </span>
+    <section id="ingenieur" className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-neutral-200/80">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          {/* Left Column: Compact, Professionally Framed Portrait (No Giant Picture!) */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-sm">
+              {/* CAD Crosshairs */}
+              <div className="absolute -top-2 -left-2 font-mono text-[9px] text-neutral-400 z-10">+</div>
+              <div className="absolute -top-2 -right-2 font-mono text-[9px] text-neutral-400 z-10">+</div>
+              <div className="absolute -bottom-2 -left-2 font-mono text-[9px] text-neutral-400 z-10">+</div>
+              <div className="absolute -bottom-2 -right-2 font-mono text-[9px] text-neutral-400 z-10">+</div>
+
+              {/* Controlled Height Container */}
+              <div className="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden border border-neutral-300 shadow-md bg-neutral-900">
+                <Image
+                  src="/projects/32.JPG"
+                  alt="Mendame Ndong Warex Lansky, Ingénieur Génie Civil"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 380px"
+                  className="object-cover object-center grayscale-[15%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-black/60 backdrop-blur-md text-white border border-white/10">
+                  <span className="font-mono text-[9px] uppercase tracking-wider text-[#F59E0B] block">
+                    INGÉNIEUR GÉNIE CIVIL • FONDATEUR
+                  </span>
+                  <span className="font-headline text-sm font-bold uppercase tracking-tight block">
+                    {COMPANY_INFO.founder.fullName}
+                  </span>
+                  <span className="font-mono text-[9px] text-neutral-300 block">
+                    Libreville, Gabon
+                  </span>
+                </div>
               </div>
             </div>
-
-            {/* Decorative Corner Element */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 blueprint-grid opacity-30 -z-10 rounded-2xl"></div>
           </div>
 
-          {/* Text Content Column */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-[0.25em] text-[#8b5000]">
-                <span className="w-8 h-[2px] bg-[#ff9800]"></span>
-                L&apos;Ingénieur &amp; La Vision Woodlyam
-              </div>
-              <h2 className="font-headline text-3xl sm:text-5xl font-black uppercase text-[#1b1c1c] tracking-tight">
-                Bâtir avec Précision, Rigueur et Intégrité
+          {/* Right Column: Narrative & Values */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="space-y-2">
+              <span className="font-mono text-[10px] tracking-widest uppercase text-[#D97706] font-semibold">
+                {"// PROFIL & ENGAGEMENT"}
+              </span>
+              <h2 className="font-headline text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#111827]">
+                L&apos;Ingénieur Derrière Woodlyam
               </h2>
             </div>
 
-            {/* Quote Block */}
-            <blockquote className="border-l-4 border-[#ff9800] pl-6 py-2 italic text-base sm:text-lg text-[#1b1c1c]/80 leading-relaxed bg-white/60 rounded-r-xl">
+            <blockquote className="border-l-2 border-[#D97706] pl-4 italic text-sm text-neutral-700 leading-relaxed bg-neutral-50 p-3 rounded-r-lg">
               &laquo; {COMPANY_INFO.founder.quote} &raquo;
             </blockquote>
 
-            <p className="text-sm sm:text-base text-[#1b1c1c]/80 leading-relaxed">
+            <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
               {COMPANY_INFO.founder.bio}
             </p>
 
-            {/* Core Values */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              <div className="bg-white p-4 rounded-xl border border-[#dbc2ad]/30 shadow-sm space-y-1.5">
-                <Shield className="w-5 h-5 text-[#8b5000]" />
-                <h4 className="font-headline font-bold text-xs uppercase text-[#1b1c1c]">Sécurité Maximale</h4>
-                <p className="text-[11px] text-[#1b1c1c]/70">Calculs matriciels aux Eurocodes avec marges de sécurité garanties.</p>
+            {/* 3 Core Engineering Values */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+              <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-200/80 space-y-1">
+                <Shield className="w-4 h-4 text-[#D97706]" />
+                <h4 className="font-headline text-xs font-bold uppercase text-neutral-900">Rigueur Normative</h4>
+                <p className="text-[10px] text-neutral-500">Eurocodes &amp; BAEL 91 appliqués sans compromis.</p>
               </div>
 
-              <div className="bg-white p-4 rounded-xl border border-[#dbc2ad]/30 shadow-sm space-y-1.5">
-                <Target className="w-5 h-5 text-[#ff9800]" />
-                <h4 className="font-headline font-bold text-xs uppercase text-[#1b1c1c]">Optimisation des Coûts</h4>
-                <p className="text-[11px] text-[#1b1c1c]/70">Juste dosage du béton et ratios d&apos;aciers maîtrisés sans gaspillage.</p>
+              <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-200/80 space-y-1">
+                <Target className="w-4 h-4 text-emerald-600" />
+                <h4 className="font-headline text-xs font-bold uppercase text-neutral-900">Optimisation</h4>
+                <p className="text-[10px] text-neutral-500">Métrés d&apos;aciers et dosage béton équilibrés.</p>
               </div>
 
-              <div className="bg-white p-4 rounded-xl border border-[#dbc2ad]/30 shadow-sm space-y-1.5">
-                <HardHat className="w-5 h-5 text-[#8b5000]" />
-                <h4 className="font-headline font-bold text-xs uppercase text-[#1b1c1c]">Présence Terrain</h4>
-                <p className="text-[11px] text-[#1b1c1c]/70">Contrôle physique intransigeant des armatures avant chaque coulage.</p>
+              <div className="p-3 rounded-lg bg-neutral-50 border border-neutral-200/80 space-y-1">
+                <HardHat className="w-4 h-4 text-[#111827]" />
+                <h4 className="font-headline text-xs font-bold uppercase text-neutral-900">Réalité Terrain</h4>
+                <p className="text-[10px] text-neutral-500">Contrôle physique des armatures avant coulage.</p>
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            {/* Action Links */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={onOpenQuote}
-                className="bg-[#1b1c1c] hover:bg-[#8b5000] text-white px-6 py-3.5 rounded-xl font-headline font-bold text-xs uppercase tracking-wider transition-all shadow-md active:scale-95"
+                className="group inline-flex items-center gap-2 bg-[#111827] hover:bg-[#D97706] text-white px-5 py-2.5 rounded-full text-xs font-headline font-semibold tracking-wide uppercase transition-all duration-200 active:scale-95 shadow-sm"
               >
-                Demander une Consultation Technique
+                <span>Consulter pour un projet</span>
+                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
-              
+
               <a
                 href={COMPANY_INFO.contacts.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] px-6 py-3.5 rounded-xl font-headline font-bold text-xs uppercase tracking-wider border border-[#25D366]/30 transition-all"
+                className="inline-flex items-center gap-2 text-emerald-700 bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200/80 px-4 py-2.5 rounded-full text-xs font-headline font-semibold tracking-wide uppercase transition-colors"
               >
-                <MessageSquare className="w-4 h-4" />
-                <span>Échanger sur WhatsApp</span>
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>Discussion directe</span>
               </a>
             </div>
           </div>

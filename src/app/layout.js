@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -13,10 +13,16 @@ const inter = Inter({
   display: "swap",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
 export const metadata = {
-  title: "Woodlyam Engineering | Cabinet d'Ingénierie & Génie Civil — Libreville, Gabon",
+  title: "Woodlyam Engineering | Bureau d'Études & Ingénierie Civile — Libreville, Gabon",
   description:
-    "Expertise technique en ingénierie civile dirigée par Mendame Ndong Warex Lansky. Dimensionnement de structures béton armé, VRD, ouvrages de soutènement et contrôle de chantiers à Libreville et dans tout le Gabon.",
+    "Cabinet d'ingénierie et de calculs de structures dirigé par Mendame Ndong Warex Lansky. Dimensionnement béton armé Eurocodes, voiries & réseaux divers (VRD), soutènements et maîtrise d'œuvre à Libreville, Gabon.",
   keywords: [
     "Ingénieur Génie Civil Gabon",
     "Woodlyam Engineering",
@@ -51,9 +57,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="fr"
-      className={`${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="antialiased font-body bg-[#fcf9f8] text-[#1b1c1c] selection:bg-[#ff9800] selection:text-[#653900]">
+      <body className="antialiased font-body bg-[#FAFAFA] text-[#111827] selection:bg-[#F59E0B] selection:text-[#111827]">
         {children}
       </body>
     </html>
