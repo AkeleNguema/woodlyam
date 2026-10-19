@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { ArrowUp, MapPin, Mail, Phone, MessageSquare, ShieldCheck } from "lucide-react";
 import { COMPANY_INFO } from "../data/companyData";
 
@@ -15,8 +16,14 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-white text-neutral-900 flex items-center justify-center font-headline font-black text-sm">
-                W
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-neutral-700 shadow-sm shrink-0 bg-neutral-900">
+                <Image
+                  src="/projects/icone2.jpeg"
+                  alt="Logo Woodlyam Engineering"
+                  fill
+                  sizes="32px"
+                  className="object-cover"
+                />
               </div>
               <span className="font-headline text-lg font-black tracking-[0.2em] text-white uppercase">
                 WOODLYAM

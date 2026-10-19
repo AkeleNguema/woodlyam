@@ -51,6 +51,14 @@ export const metadata = {
     description:
       "Bureau d'études et ingénierie BTP à Libreville, Gabon. Calcul de structures et suivi de chantiers.",
   },
+  icons: {
+    icon: [
+      { url: "/projects/icone2.jpeg", type: "image/jpeg" },
+      { url: "/icon.jpeg", type: "image/jpeg" },
+    ],
+    shortcut: "/projects/icone2.jpeg",
+    apple: "/projects/icone2.jpeg",
+  },
 };
 
 export default function RootLayout({ children }) {

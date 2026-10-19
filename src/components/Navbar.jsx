@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Menu, X, ArrowUpRight, MessageSquare, Compass } from "lucide-react";
 import { COMPANY_INFO } from "../data/companyData";
 
@@ -59,8 +60,15 @@ export default function Navbar({ onOpenQuote }) {
               className="flex items-center gap-2.5 group focus:outline-none"
               aria-label="Woodlyam Engineering Accueil"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#111827] text-white flex items-center justify-center font-headline font-black text-sm border border-neutral-300 shadow-sm group-hover:bg-[#D97706] transition-colors duration-200">
-                W
+              <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-neutral-300 shadow-sm group-hover:scale-105 group-hover:border-[#D97706] transition-all duration-200 bg-neutral-900 shrink-0">
+                <Image
+                  src="/projects/icone2.jpeg"
+                  alt="Logo Woodlyam Engineering"
+                  fill
+                  sizes="32px"
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-headline text-xs font-black tracking-[0.2em] text-[#111827] uppercase leading-none group-hover:text-[#D97706] transition-colors">
