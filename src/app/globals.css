@@ -2,11 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ton style personnalisé reste ici */
 @layer utilities {
   .blueprint-grid {
-    background-image: linear-gradient(#dbc2ad10 1px, transparent 1px), 
-                      linear-gradient(90deg, #dbc2ad10 1px, transparent 1px);
+    background-image: linear-gradient(#dbc2ad18 1px, transparent 1px), 
+                      linear-gradient(90deg, #dbc2ad18 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .technical-dots {
+    background-image: radial-gradient(#8b5000 0.8px, transparent 0.8px);
     background-size: 20px 20px;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for modern civil engineering look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f6f3f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #dbc2ad;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9800;
 }
